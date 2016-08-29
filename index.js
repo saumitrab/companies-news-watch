@@ -1,11 +1,9 @@
 var googleFinance = require('google-finance');
+var _ = require('lodash');
 
 var SYMBOLS = [
   'NASDAQ:AAPL',
   'NASDAQ:GOOGL',
-  'NASDAQ:MSFT',
-  'NASDAQ:YHOO',
-  'NYSE:IBM',
   'NYSE:TWTR'
   ];
 
@@ -18,8 +16,13 @@ googleFinance.companyNews({
     console.log("Caught Error : " + err);
   });
 
-var processNews = function (news) {
+var processNews = function (result) {
   console.log("Got news!");
-  var text = JSON.stringify(news, null, '\t');
-  console.log(text);
+
+  _.each(result, function(news, symbol) {
+      news.map(function(obj) {
+        console.log(obj.title);
+        console.log(obj.link);
+      });
+  });
 }
