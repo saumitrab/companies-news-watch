@@ -1,11 +1,14 @@
 var googleFinance = require('google-finance');
 var _ = require('lodash');
+var moment = require('moment');
 
 var SYMBOLS = [
   'NASDAQ:AAPL',
   'NASDAQ:GOOGL',
   'NYSE:TWTR'
   ];
+
+var NEWS_RECENCY = 24*60*2; // minutes
 
 googleFinance.companyNews({
   symbols: SYMBOLS
@@ -21,8 +24,11 @@ var processNews = function (result) {
 
   _.each(result, function(news, symbol) {
       news.map(function(obj) {
-        console.log(obj.title);
-        console.log(obj.link);
+
+        if ( moment(new Date(obj.date)).isSameOrAfter(moment().subtract(NEWS_RECENCY, 'minutes')) ) {
+          console.log(obj.title);
+          console.log(obj.link);
+        }
       });
   });
 }

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/saumitrab/companies-news-watch#readme",
   "dependencies": {
     "google-finance": "^0.1.6",
-    "lodash": "^4.15.0"
+    "lodash": "^4.15.0",
+    "moment": "^2.14.1"
   }
 }
