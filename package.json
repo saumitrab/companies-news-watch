@@ -19,6 +19,7 @@
   "dependencies": {
     "google-finance": "^0.1.6",
     "lodash": "^4.15.0",
-    "moment": "^2.14.1"
+    "moment": "^2.14.1",
+    "slackbots": "^0.5.2"
   }
 }
