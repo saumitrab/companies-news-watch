@@ -8,7 +8,7 @@ var NEWS_RECENCY = 4 * 60; // minutes
 var BOT_EMOJI = ':cat:';
 
 var processNews = function (result) {
-  console.log("Got news!");
+  //console.log("Got news!");
   var update = "";
 
   _.each(result, function(news, symbol) {
