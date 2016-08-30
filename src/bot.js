@@ -1,5 +1,5 @@
 var SlackBot = require('slackbots');
-var TOKEN = require('../data/token');
+var TOKEN = process.env.SLACK_TOKEN
 
 var BOT_NAME = 'Stock News';
 
