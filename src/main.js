@@ -5,7 +5,11 @@ var processNews = require('./processNews');
 var SYMBOLS = [
   'NASDAQ:AAPL',
   'NASDAQ:GOOGL',
-  'NYSE:TWTR'
+  'NYSE:TWTR',
+  'NASDAQ:GRPN',
+  'NASDAQ:FB',
+  'NASDAQ:AMZN',
+  'NYSE:STZ'
   ];
 
 var NEWS_FREQUENCY = 5; // minutes
@@ -22,8 +26,7 @@ function checkNewsUpdates() {
   });
 }
 
-//setInterval(checkNewsUpdates, NEWS_FREQUENCY * 60 * 1000); // Time in milliseconds
+setInterval(checkNewsUpdates, NEWS_FREQUENCY * 60 * 1000); // Time in milliseconds
 
 //DEBUG
-checkNewsUpdates();
-
+//checkNewsUpdates();

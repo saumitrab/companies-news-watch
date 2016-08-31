@@ -3,7 +3,7 @@ var moment = require('moment');
 
 var bot = require('./bot');
 
-var NEWS_RECENCY = 4 * 60; // minutes
+var NEWS_RECENCY = 5; // minutes
 
 var BOT_EMOJI = ':cat:';
 
