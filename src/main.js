@@ -2,6 +2,8 @@ var googleFinance = require('google-finance');
 
 var processNews = require('./processNews');
 
+var pino = require('pino')();
+
 var SYMBOLS = [
   'NASDAQ:AAPL',
   'NASDAQ:GOOGL',
@@ -15,6 +17,7 @@ var SYMBOLS = [
 var NEWS_FREQUENCY = 5; // minutes
 
 function checkNewsUpdates() {
+  pino.info('Checking news updates');
   googleFinance.companyNews({
     symbols: SYMBOLS
   })
@@ -22,11 +25,12 @@ function checkNewsUpdates() {
     processNews(result);
   })
   .catch(function(err) {
-    console.log("Caught Error : " + err);
+    pino.error(err);
   });
 }
 
+pino.info({newsFrequency: NEWS_FREQUENCY}, 'Starting News Check');
 setInterval(checkNewsUpdates, NEWS_FREQUENCY * 60 * 1000); // Time in milliseconds
 
-//DEBUG
-//checkNewsUpdates();
+//Run once right away
+checkNewsUpdates();

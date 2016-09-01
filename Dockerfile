@@ -1,6 +1,7 @@
 FROM node:argon
 
 RUN mkdir -p /usr/src/StockNewsBot
+RUN mkdir -p /var/log/
 WORKDIR /usr/src/StockNewsBot
 
 COPY package.json /usr/src/StockNewsBot

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js >> /var/log/companiesWatch.log"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "google-finance": "^0.1.6",
     "lodash": "^4.15.0",
     "moment": "^2.14.1",
+    "pino": "^2.8.3",
     "slackbots": "^0.5.2"
   }
 }
